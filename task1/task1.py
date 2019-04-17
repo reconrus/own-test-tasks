@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import re
 
 URL = "https://stackoverflow.com/questions/3044620/python-vs-java-performance-runtime-speed"
-PATH_TO_DRIVER = 'chromedriver.exe'
+PATH_TO_DRIVER = '../chromedriver.exe'
 
 def mentioned_users(url, driver_path):
 

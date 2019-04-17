@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import json
 
-PATH_TO_DRIVER = 'chromedriver.exe'
+PATH_TO_DRIVER = '../chromedriver.exe'
 CITIES = ["Kazan", "Moscow", "London"]
 
 def weather(cities, driver_path):
