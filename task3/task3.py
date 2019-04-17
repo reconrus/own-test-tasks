@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import re
 
 
-PATH_TO_DRIVER = 'chromedriver.exe'
+PATH_TO_DRIVER = '../chromedriver.exe'
 KEYWORDS = "python qt"
 
 def popular_repositories(keywords, driver_path):
