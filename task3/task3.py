@@ -19,15 +19,19 @@ def popular_repositories(keywords, driver_path):
 
     driver.get(URL)
 
-    WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//a[contains(@data-hydro-click, '\"result_position\":10')]"))
-    )
-
     links = []
+
+    try:
+        WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//a[contains(@data-hydro-click, '\"result_position\"')]"))
+        )
+    except:
+        driver.quit()
+        return links
 
     repos = driver.find_elements_by_xpath("//a[contains(@data-hydro-click, '\"result_position\"')]")
     
-    for i in range(5): 
+    for i in range(min(len(repos), 5)): 
         links.append(repos[i].get_attribute("href"))
 
     driver.quit()

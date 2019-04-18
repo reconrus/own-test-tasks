@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import re
 
 PATH_TO_DRIVER = '../chromedriver.exe'
-WORD = "hug"
+WORD = "love"
 
 def synonym(word, driver_path):
 
@@ -19,9 +19,13 @@ def synonym(word, driver_path):
     driver.get(URL)
 
     xpath = "//section[starts-with(@class, 'synonyms-container')]/ul/li/span/a"
-    WebDriverWait(driver, 10).until(
+    try:
+        WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, xpath))
-    )
+        )
+    except:
+        driver.quit()
+        return ""
 
     synonym = driver.find_element_by_xpath(xpath).text
 
